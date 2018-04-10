@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.dannil</groupId>
+    <artifactId>qualityguardian</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>qualityguardian-maven-plugin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+
+  <name>QualityGuardian Maven Plugin</name>
+  <!-- <url>http://maven.apache.org</url> -->
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- Internal project dependencies -->
+    <dependency>
+      <groupId>com.github.dannil</groupId>
+      <artifactId>qualityguardian-api</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <!-- Maven Plugin dependencies -->
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+      <version>3.2</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <goalPrefix>${parent.project.artifactId}</goalPrefix>
+          <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+        </configuration>
+        <executions>
+          <execution>
+            <id>mojo-descriptor</id>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>help-goal</id>
+            <goals>
+              <goal>helpmojo</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Integration tests configuration -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <!-- <streamLogs>true</streamLogs> -->
+          <goals>
+            <goal>clean</goal>
+            <goal>generate-sources</goal>
+          </goals>
+          <settingsFile>src/it/settings.xml</settingsFile>
+          <failIfNoProjects>true</failIfNoProjects>
+          <cloneProjectsTo>${project.build.directory}/its</cloneProjectsTo>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <goals>
+              <!-- <goal>install</goal> -->
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- <profiles> -->
+  <!-- <profile> -->
+  <!-- <id>run-its</id> -->
+  <!-- <build> -->
+  <!-- <plugins> -->
+
+  <!-- </plugins> -->
+  <!-- </build> -->
+  <!-- </profile> -->
+  <!-- </profiles> -->
+</project>
