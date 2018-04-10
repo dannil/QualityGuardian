@@ -1,0 +1,19 @@
+language: java
+git:
+  depth: 99999
+branches:
+  except:
+  - gh-pages
+  - /^tag.*$/
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    jdk: oraclejdk8
+  - os: linux
+    dist: trusty
+    jdk: oraclejdk9
+install:
+- true
+script:
+- mvn install -B -V
