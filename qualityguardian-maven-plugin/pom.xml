@@ -15,6 +15,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
+  <prerequisites>
+    <maven>${maven.version}</maven>
+  </prerequisites>
+
   <name>QualityGuardian Maven Plugin</name>
   <!-- <url>http://maven.apache.org</url> -->
 

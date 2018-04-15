@@ -23,6 +23,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <maven.version>3.0.4</maven.version>
   </properties>
 
   <dependencyManagement>
@@ -104,7 +106,7 @@
               <configuration>
                 <rules>
                   <requireMavenVersion>
-                    <version>3.0.4</version>
+                    <version>${maven.version}</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
                     <version>1.8</version>
@@ -166,22 +168,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>enforce-versions</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireMavenVersion>
-                  <version>3.0.4</version>
-                </requireMavenVersion>
-              </rules>
-              <fail>true</fail>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
