@@ -15,7 +15,7 @@
   <artifactId>qualityguardian-api</artifactId>
 
   <name>QualityGuardian API</name>
-  <url>http://maven.apache.org</url>
+  <!-- <url>http://maven.apache.org</url> -->
 
   <dependencies>
     <!-- Internal project dependencies -->
@@ -25,14 +25,5 @@
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
