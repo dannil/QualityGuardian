@@ -1,4 +1,4 @@
-package com.github.dannil.qualityguardian.mojo;
+package com.github.dannil.qualityguardian.mavenplugin.mojo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -9,10 +9,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 @Mojo(name = "test", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
 public class TestMojo extends AbstractMojo {
