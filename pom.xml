@@ -14,10 +14,10 @@
   <!-- <url>http://maven.apache.org</url> -->
 
   <modules>
-    <module>qualityguardian-annotation</module>
-    <module>qualityguardian-api</module>
-    <module>qualityguardian-core</module>
-    <module>qualityguardian-maven-plugin</module>
+    <module>annotation</module>
+    <module>api</module>
+    <module>core</module>
+    <module>maven-plugin</module>
   </modules>
 
   <properties>
